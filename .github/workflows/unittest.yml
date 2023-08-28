@@ -35,4 +35,5 @@ jobs:
       run: |
         location=$(pip3 show cinder|grep Location|sed -e "s/Location: //")
         cp -r ./driver/ixsystems ${location}/cinder/volume/drivers/
+        export PYTHONPATH=./test
         python -m unittest ./test/test_utils.py ./test/test_freenasapi.py ./test/test_common.py ./test/test_iscsi.py
